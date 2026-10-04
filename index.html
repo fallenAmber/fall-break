@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>A Very Important Fall Break Matter 🍂</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="glow g1"></div>
+    <div class="glow g2"></div>
+    <div id="leaves"></div>
+
+    <main class="shell">
+
+        <article class="card">
+
+
+            <section id="screen1" class="screen active">
+
+                <div class="center hero">
+
+                    <div class="crown">👑</div>
+
+                    <div class="eyebrow">
+                        An extremely important administrative matter
+                    </div>
+
+                    <h1>
+                        Miss Linda Zhou,<br>
+                        I have a proposition.
+                    </h1>
+
+                    <p>
+                        The Department of Unnecessarily Elaborate Planning
+                        requests approximately
+                        <strong>30 seconds</strong>
+                        of your valuable time.
+                    </p>
+
+                    <div class="actions">
+
+                        <button
+                            class="btn primary"
+                            onclick="showScreen(2)"
+                        >
+                            Proceed 🫡
+                        </button>
+
+                    </div>
+
+                    <small>
+                        This matter has been prepared with an unreasonable
+                        amount of seriousness.
+                    </small>
+
+                </div>
+
+            </section>
+
+
+
+            <section id="screen2" class="screen">
+
+                <div class="center">
+
+                    <div class="eyebrow">
+                        One important question
+                    </div>
+
+                    <h2>
+                        Would you spare me one day during fall break?
+                    </h2>
+
+                    <p>
+                        October 10–16.
+                        <br>
+                        I handle the West Village plan.
+                        <br>
+                        You merely choose when I am allowed to bother you. 😌
+                    </p>
+
+                    <div class="actions">
+
+                        <button
+                            id="yesBtn"
+                            class="btn primary"
+                            onclick="accepted()"
+                        >
+                            YES
+                        </button>
+
+                        <button
+                            id="noBtn"
+                            class="btn secondary"
+                            type="button"
+                        >
+                            NO
+                        </button>
+
+                    </div>
+
+                    <div
+                        id="noMessage"
+                        class="no-message"
+                    ></div>
+
+                    <button
+                        id="realNo"
+                        class="real-no"
+                        onclick="submitDecline()"
+                    >
+                        Okay okay, I actually can't during fall break 🥲
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <section id="screen3" class="screen">
+
+                <div class="center">
+
+                    <div class="eyebrow">
+                        Excellent decision
+                    </div>
+
+                    <h2>
+                        Your judgment remains impeccable. 👑
+                    </h2>
+
+                    <p>
+                        Her Highness may now choose the day
+                        on which she wishes to make an appearance.
+                    </p>
+
+                </div>
+
+                <div
+                    id="dateGrid"
+                    class="grid"
+                ></div>
+
+                <div class="actions">
+
+                    <button
+                        id="dateNext"
+                        class="btn primary"
+                        onclick="goToTime()"
+                        disabled
+                    >
+                        Continue →
+                    </button>
+
+                </div>
+
+            </section>
+
+
+
+            <section id="screen4" class="screen">
+
+                <div class="center">
+
+                    <div class="eyebrow">
+                        One final scheduling matter
+                    </div>
+
+                    <h2>
+                        When shall I report for duty? 🫡
+                    </h2>
+
+                    <p>
+                        Select a starting time.
+                        <br><br>
+
+                        <strong>A highly classified preview:</strong>
+                        <br>
+
+                        Washington Square → wander around → bookstore →
+                        coffee → pretty West Village streets →
+                        Hudson sunset → dinner → ice cream →
+                        “wanna walk a little more?” 😌
+                    </p>
+
+                </div>
+
+                <div
+                    id="timeGrid"
+                    class="times"
+                ></div>
+
+                <div class="actions">
+
+                    <button
+                        class="btn ghost"
+                        onclick="showScreen(3)"
+                    >
+                        ← Back
+                    </button>
+
+                    <button
+                        id="timeNext"
+                        class="btn primary"
+                        onclick="reviewPlan()"
+                        disabled
+                    >
+                        Review decree
+                    </button>
+
+                </div>
+
+            </section>
+
+            <section id="screen5" class="screen">
+
+                <div class="center">
+
+                    <div class="eyebrow">
+                        Administrative review
+                    </div>
+
+                    <h2>
+                        Please inspect your decree.
+                    </h2>
+
+                    <p>
+                        Changes may still be requested before
+                        the royal seal is applied.
+                    </p>
+
+                </div>
+
+                <div class="summary">
+
+                    <div class="row">
+                        <span>Guest of Honor</span>
+                        <strong>Her Highness Linda 👑</strong>
+                    </div>
+
+                    <div class="row">
+                        <span>Date</span>
+                        <strong id="reviewDate">—</strong>
+                    </div>
+
+                    <div class="row">
+                        <span>Time</span>
+                        <strong id="reviewTime">—</strong>
+                    </div>
+
+                    <div class="row">
+                        <span>Agenda</span>
+                        <strong>
+                            West Village Adventure 🍂
+                        </strong>
+                    </div>
+
+                </div>
+
+                <div
+                    id="submitError"
+                    class="error-message"
+                ></div>
+
+                <div class="actions">
+
+                    <button
+                        class="btn ghost"
+                        onclick="showScreen(3)"
+                    >
+                        Change it
+                    </button>
+
+                    <button
+                        id="issueBtn"
+                        class="btn primary"
+                        onclick="submitAcceptance()"
+                    >
+                        👑 Issue Royal Decree
+                    </button>
+
+                </div>
+
+            </section>
+
+
+
+            <section id="screenSending" class="screen">
+
+                <div class="center hero">
+
+                    <div class="seal-loader">
+                        👑
+                    </div>
+
+                    <div class="eyebrow">
+                        Official channels engaged
+                    </div>
+
+                    <h2>
+                        Delivering your decree…
+                    </h2>
+
+                    <p>
+                        Please remain regal for approximately one moment.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+
+            <section id="screen6" class="screen">
+
+                <div class="center">
+
+                    <div class="crown">
+                        👑
+                    </div>
+
+                    <div class="eyebrow">
+                        Decree delivered successfully
+                    </div>
+
+                    <h2>
+                        It is settled.
+                    </h2>
+
+                    <p>
+                        The Department has been notified.
+                        Your administrative responsibilities
+                        are now complete. 😌
+                    </p>
+
+                </div>
+
+
+                <div class="decree">
+
+                    <div class="decree-title">
+                        ROYAL DECREE
+                    </div>
+
+                    <div class="row">
+
+                        <span>
+                            Guest of Honor
+                        </span>
+
+                        <strong>
+                            Her Highness Linda 👑
+                        </strong>
+
+                    </div>
+
+
+                    <div class="row">
+
+                        <span>
+                            Occasion
+                        </span>
+
+                        <strong>
+                            Fall Break 2026 🍂
+                        </strong>
+
+                    </div>
+
+
+                    <div class="row">
+
+                        <span>
+                            Date
+                        </span>
+
+                        <strong id="finalDate">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="row">
+
+                        <span>
+                            Time
+                        </span>
+
+                        <strong id="finalTime">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="row">
+
+                        <span>
+                            Mission
+                        </span>
+
+                        <strong>
+                            West Village Adventure 🗽
+                        </strong>
+
+                    </div>
+
+
+                    <div class="row">
+
+                        <span>
+                            Organizer
+                        </span>
+
+                        <strong>
+                            Tohid
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <p class="center">
+
+                    <strong>
+                        Your only responsibility is to show up.
+                    </strong>
+
+                    <br>
+
+                    I'll take care of the rest. :)
+
+                </p>
+
+            </section>
+
+
+            <!-- =========================
+                 DECLINE SCREEN
+            ========================== -->
+
+            <section id="screenDecline" class="screen">
+
+                <div class="center hero">
+
+                    <div class="bigemoji">
+                        🥲
+                    </div>
+
+                    <div class="eyebrow">
+                        Application respectfully withdrawn
+                    </div>
+
+                    <h2>
+                        Fair enough, Your Highness.
+                    </h2>
+
+                    <p>
+                        The Department of Unnecessarily Elaborate Planning
+                        accepts this devastating administrative outcome.
+
+                        <br><br>
+
+                        No pressure.
+
+                        <br>
+
+                        Another time. :)
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 DECLINE SUBMISSION ERROR
+            ========================== -->
+
+            <section id="screenDeclineError" class="screen">
+
+                <div class="center hero">
+
+                    <div class="bigemoji">
+                        📨
+                    </div>
+
+                    <div class="eyebrow">
+                        Minor paperwork incident
+                    </div>
+
+                    <h2>
+                        The Department couldn't deliver that.
+                    </h2>
+
+                    <p>
+                        No worries — nothing was recorded.
+                        You can try once more.
+                    </p>
+
+                    <div class="actions">
+
+                        <button
+                            class="btn primary"
+                            onclick="showScreen(2)"
+                        >
+                            Try again
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </article>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
